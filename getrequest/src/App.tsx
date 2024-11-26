@@ -5,15 +5,12 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import {
   GridRowsProp,
-  GridRowModesModel,
   DataGrid,
   GridColDef,
-  GridEventListener,
-  GridRowEditStopReasons,
 } from "@mui/x-data-grid";
 import "./App.css"
 
-// Тип данных, которые мы получаем с API
+// Тип данных, которые получаем с API
 interface Todo {
   userId: number;
   id: number;
@@ -21,9 +18,9 @@ interface Todo {
   completed: boolean;
 }
 
+// Функция выполняющая GET-запрос и отрисовку таблицу с полученными данными
 export default function DataTable() {
   const [rows, setRows] = React.useState<GridRowsProp>([]);
-  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,9 +28,8 @@ export default function DataTable() {
     axios
       .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
       .then((response) => {
-        // Преобразуем данные в формат, который подходит для DataGrid
         const transformedRows = response.data.map((todo) => ({
-          id: todo.id,  // id необходимо для DataGrid
+          id: todo.id, 
           userId: todo.userId,
           title: todo.title,
           completed: todo.completed,
@@ -49,16 +45,7 @@ export default function DataTable() {
       });
   }, []);
 
-  const handleRowEditStop: GridEventListener<"rowEditStop"> = (params, event) => {
-    if (params.reason === GridRowEditStopReasons.rowFocusOut) {
-      event.defaultMuiPrevented = true;
-    }
-  };
-
-  const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
-    setRowModesModel(newRowModesModel);
-  };
-
+  //Колонки таблицы
   const columns: GridColDef[] = [
     {
       field: "userId",
@@ -135,9 +122,6 @@ export default function DataTable() {
           rows={rows}
           columns={columns}
           editMode="row"
-          rowModesModel={rowModesModel}
-          onRowModesModelChange={handleRowModesModelChange}
-          onRowEditStop={handleRowEditStop}
           sx={{
             "& .MuiDataGrid-cell": {
               whiteSpace: "normal",

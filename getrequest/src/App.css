@@ -3,6 +3,7 @@ body {
   padding: 0;
 }
 
+/*Стили для таблицы*/
 .table {
   display: flex;
   flex-direction: column;
@@ -10,6 +11,7 @@ body {
   padding: 2rem;
 }
 
+/*Стили для колонтитула таблицы*/
 .MuiDataGrid-columnHeader {
   font-weight: bold;
   background-color: #009999;
@@ -19,6 +21,7 @@ body {
   line-height: 1.2;
 }
 
+/*Стили для колонок*/
 .MuiDataGrid-cell {
   white-space: normal;
   word-wrap: break-word;
@@ -26,14 +29,18 @@ body {
   border-right: 1px solid #ddd;
 }
 
+/*Стили для строк таблицы*/
+/*Стили для нечетных строк*/
 .MuiDataGrid-row:nth-child(odd) {
   background-color: #f5f5f5;
 }
 
+/*Стили для четных строк*/
 .MuiDataGrid-row:nth-child(even) {
   background-color: white;
 }
 
+/*Стили для колонок таблицы при просмотре на телефоне*/
 @media (max-width: 600px) {
   .MuiDataGrid-cell {
     white-space: normal;
