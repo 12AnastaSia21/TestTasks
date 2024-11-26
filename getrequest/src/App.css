@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.MuiDataGrid-columnHeader {
+  font-weight: bold;
+  background-color: #009999;
+  color: white;
+  white-space: normal;
+  word-wrap: break-word !important;
+  line-height: 1.2;
+}
+
+.MuiDataGrid-cell {
+  white-space: normal;
+  word-wrap: break-word;
+  min-width: 150px;
+  border-right: 1px solid #ddd;
+}
+
+.MuiDataGrid-row:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+.MuiDataGrid-row:nth-child(even) {
+  background-color: white;
+}
+
+@media (max-width: 600px) {
+  .MuiDataGrid-cell {
+    white-space: normal;
+    word-wrap: break-word;
+    min-width: 150px;
+  }
+
+  .MuiDataGrid-columnHeader {
+    white-space: normal;
+    word-wrap: break-word !important;
+    line-height: 1.2;
+  }
+}
