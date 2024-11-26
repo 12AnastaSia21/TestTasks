@@ -7,7 +7,7 @@
 В папке arrayMap - решение первой задачи (JS)
 
 В папке getrequest - решение второй задачи.
-  Приложение разверното - [ссылка](http://vidrochka.xyz:7204/)
+  Приложение развернуто - [ссылка](http://vidrochka.xyz:7204/)
   (React, TSX, CSS, Axios, MUI)
 
 В папке keyProtoKey - решение третьей задачи (JS)
